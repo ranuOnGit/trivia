@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-const TriviaTable = ( { trivia, handleClick } ) => {
+const TriviaTable = ( { trivia } ) => {
   
 
   const useStyles = makeStyles({
@@ -24,33 +24,40 @@ const TriviaTable = ( { trivia, handleClick } ) => {
         <TableHead>
           <TableRow>
             <TableCell align='center'>
-              <h3>CATEGORY</h3>
+              <h3 style={{ letterSpacing: '.2rem' }}>CATEGORY</h3>
             </TableCell>
             <TableCell align='center'>
-              <h3>QUESTION</h3>
+              <h3 style={{ letterSpacing: '.2rem' }}>QUESTION</h3>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {trivia.map((el, index) => {
             const id = Math.floor(Math.random() * 1000 + 1);
-            const { category, question} = el;
+            const { category, question, correct_answer } = el;
             return (
               <TableRow key={id}>
-                <TableCell align='center'>{category}</TableCell>
-                <TableCell align='center'>{question}</TableCell>
+                <TableCell align='center' style={{ letterSpacing: '.1rem' }}>
+                  {category}
+                </TableCell>
+                <TableCell
+                  align='center'
+                  style={{ color: 'red', letterSpacing: '.1rem' }}
+                >
+                  {question}
+                </TableCell>
                 <TableCell align='center'>
-                  <button
+                  <select
                     style={{
                       padding: '.5rem',
                       color: 'white',
                       backgroundColor: 'green',
-                      letterSpacing: '.2rem',
+                      letterSpacing: '.1rem',
                     }}
-                    onClick={() => handleClick(index)}
                   >
-                    ANSWER
-                  </button>
+                    <option>ANSWER</option>
+                    <option>{correct_answer}</option>
+                  </select>
                 </TableCell>
               </TableRow>
             );
