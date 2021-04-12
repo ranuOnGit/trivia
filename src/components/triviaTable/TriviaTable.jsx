@@ -24,10 +24,10 @@ const TriviaTable = ( { trivia } ) => {
         <TableHead>
           <TableRow>
             <TableCell align='center'>
-              <h3 style={{ letterSpacing: '.2rem' }}>CATEGORY</h3>
+              <h2 style={{ letterSpacing: '.2rem' }}>CATEGORY</h2>
             </TableCell>
             <TableCell align='center'>
-              <h3 style={{ letterSpacing: '.2rem' }}>QUESTION</h3>
+              <h2 style={{ letterSpacing: '.2rem' }}>QUESTION</h2>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -38,13 +38,13 @@ const TriviaTable = ( { trivia } ) => {
             return (
               <TableRow key={id}>
                 <TableCell align='center' style={{ letterSpacing: '.1rem' }}>
-                  {category}
+                  <h3>{category}</h3>
                 </TableCell>
                 <TableCell
                   align='center'
                   style={{ color: 'red', letterSpacing: '.1rem' }}
                 >
-                  {question}
+                  <h3>{question}</h3>
                 </TableCell>
                 <TableCell align='center'>
                   <select
